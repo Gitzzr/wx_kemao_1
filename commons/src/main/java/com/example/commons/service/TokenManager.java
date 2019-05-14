@@ -1,4 +1,4 @@
-package com.example.weixin_zzr_1.service;
+package com.example.commons.service;
 
 public interface TokenManager {
 

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.commons.domain.User;
+import com.example.commons.service.TokenManager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
