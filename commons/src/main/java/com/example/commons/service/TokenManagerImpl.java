@@ -98,8 +98,8 @@ public class TokenManagerImpl implements TokenManager {
 		// 实际项目绝对不能这样干，因为获取令牌的接口每天最多能够调用2000次（每个appid）。
 		// 这里现在暂时为了简化而不考虑缓存，后面会进行重构。
 
-		String appid = "wxc50a6fb63f0ff551";
-		String appsecret = "346f51b53d6d9632250d42f590540091";
+		String appid = "wx6001c904cb6abb1d";
+		String appsecret = "9d6dec6f93c00a09c087c8d507244d60";
 
 		String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential"//
 				+ "&appid=" + appid//
