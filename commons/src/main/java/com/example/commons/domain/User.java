@@ -18,7 +18,7 @@ import org.hibernate.annotations.GenericGenerator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "wx_user")
+@Table(name = "wx_zzr_user")
 public class User {
 
 	@Id // 表示一个主键
