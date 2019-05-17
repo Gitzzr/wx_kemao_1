@@ -3,6 +3,10 @@ package com.example.commons.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.commons.domain.InMessage;
+import com.example.commons.domain.ResponseToken;
+import com.example.commons.domain.event.EventInMessage;
+import com.example.commons.service.JsonRedisSerializer;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,19 +19,14 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.Topic;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 
-import com.example.commons.domain.InMessage;
-import com.example.commons.domain.ResponseToken;
-import com.example.commons.domain.event.EventInMessage;
-import com.example.commons.service.JsonRedisSerializer;
-
 public interface EventListenerConfig extends//
 		// 表示命令行执行的程序，要求实现一个run方法，在run方法里面启动一个线程等待停止通知
 		CommandLineRunner, //
 		// 当mvn spring-boot:stop命令执行以后，会发送一个停止的命令给Spring容器。
 		// Spring容器在收到此命令以后，会执行停止，于是在停止之前会调用DisposableBean里面的方法。
 		DisposableBean {
-	
-	// 这是一个停止监视器，等待是否停止b 的通知
+
+	// 这是一个停止监视器，等待是否停止的通知
 	public final Object stopMonitor = new Object();
 
 	@Override
@@ -65,7 +64,7 @@ public interface EventListenerConfig extends//
 
 		return template;
 	}
-	
+
 	@Bean
 	public default RedisTemplate<String, ResponseToken> tokenRedisTemplate(//
 			@Autowired RedisConnectionFactory redisConnectionFactory) {

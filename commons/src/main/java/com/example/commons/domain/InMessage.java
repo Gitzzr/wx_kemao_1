@@ -81,4 +81,3 @@ public abstract class InMessage implements Serializable {
 		this.msgId = msgId;
 	}
 }
-

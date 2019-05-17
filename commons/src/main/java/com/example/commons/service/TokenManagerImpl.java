@@ -9,6 +9,9 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.Charset;
 import java.util.concurrent.TimeUnit;
 
+import com.example.commons.domain.ResponseError;
+import com.example.commons.domain.ResponseMessage;
+import com.example.commons.domain.ResponseToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +20,6 @@ import org.springframework.data.redis.core.BoundValueOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import com.example.commons.domain.ResponseError;
-import com.example.commons.domain.ResponseMessage;
-import com.example.commons.domain.ResponseToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
@@ -92,7 +92,7 @@ public class TokenManagerImpl implements TokenManager {
 		}
 		return null;
 	}
-	
+
 	public ResponseToken getRemoteToken(String account) {
 		// 此时目前不考虑任何的具体实现，只是简单获取一下令牌，也不缓存，每次都获取。
 		// 实际项目绝对不能这样干，因为获取令牌的接口每天最多能够调用2000次（每个appid）。

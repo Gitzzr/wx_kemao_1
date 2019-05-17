@@ -50,11 +50,11 @@ public class JsonRedisSerializer extends Jackson2JsonRedisSerializer<Object> {
 	// 在反序列化的时候被调用的方法，负责把字节数组转换为InMessage
 	@Override
 	public Object deserialize(byte[] bytes) throws SerializationException {
-		
+
 		if (bytes == null || bytes.length == 0) {
 			return null;
 		}
-		
+
 		ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
 		DataInputStream in = new DataInputStream(bais);
 
@@ -75,7 +75,7 @@ public class JsonRedisSerializer extends Jackson2JsonRedisSerializer<Object> {
 			throw new SerializationException("反序列化对象出现问题：" + e.getLocalizedMessage(), e);
 		}
 
-//			return super.deserialize(bytes);
+//		return super.deserialize(bytes);
 	}
 
 	public ObjectMapper getObjectMapper() {
