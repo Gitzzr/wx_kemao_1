@@ -5,6 +5,9 @@ import com.example.commons.domain.event.EventInMessage;
 import com.example.commons.processors.EventMessageProcessor;
 import com.example.commons.repository.UserRepository;
 import com.example.weixin_zzr_1.service.WeixinProxy;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +18,11 @@ public class SubscribeEventMessageProcessor implements EventMessageProcessor {
 	private UserRepository userRepository;
 	@Autowired
 	private WeixinProxy weixinProxy;
-
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SubscribeEventMessageProcessor.class);
 	@Override
 	public void onMessage(EventInMessage msg) {
+		LOG.warn("你看到我了没有", msg);
 		if (!msg.getEvent().equals("subscribe")) {
 			// 非关注事件，不处理
 			return;
