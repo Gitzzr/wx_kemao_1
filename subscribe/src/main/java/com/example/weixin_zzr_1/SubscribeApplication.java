@@ -1,5 +1,8 @@
 package com.example.weixin_zzr_1;
 
+import com.example.commons.config.EventListenerConfig;
+import com.example.commons.domain.event.EventInMessage;
+import com.example.commons.processors.EventMessageProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -12,9 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import com.example.commons.config.EventListenerConfig;
-import com.example.commons.domain.event.EventInMessage;
-import com.example.commons.processors.EventMessageProcessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootApplication
@@ -32,7 +32,6 @@ public class SubscribeApplication implements //
 		ctx = applicationContext;
 	}
 
-	
 	private static final Logger LOG = LoggerFactory.getLogger(SubscribeApplication.class);
 
 	public void handle(EventInMessage msg) {

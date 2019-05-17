@@ -1,13 +1,12 @@
 package com.example.weixin_zzr_1.processors.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.example.commons.domain.User;
 import com.example.commons.domain.event.EventInMessage;
 import com.example.commons.processors.EventMessageProcessor;
 import com.example.commons.repository.UserRepository;
 import com.example.weixin_zzr_1.service.WeixinProxy;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service("subscribeMessageProcessor")
 public class SubscribeEventMessageProcessor implements EventMessageProcessor {
