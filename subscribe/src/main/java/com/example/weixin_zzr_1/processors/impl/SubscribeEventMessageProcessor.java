@@ -22,7 +22,7 @@ public class SubscribeEventMessageProcessor implements EventMessageProcessor {
 	private static final Logger LOG = LoggerFactory.getLogger(SubscribeEventMessageProcessor.class);
 	@Override
 	public void onMessage(EventInMessage msg) {
-		LOG.warn("你看到我了没有", msg);
+		LOG.warn("你看到我了没有");
 		if (!msg.getEvent().equals("subscribe")) {
 			// 非关注事件，不处理
 			return;
