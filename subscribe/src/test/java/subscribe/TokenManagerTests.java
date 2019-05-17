@@ -1,14 +1,13 @@
 package subscribe;
 
+import com.example.commons.service.TokenManager;
+import com.example.weixin_zzr_1.SubscribeApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import com.example.commons.service.TokenManager;
-import com.example.weixin_zzr_1.SubscribeApplication;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

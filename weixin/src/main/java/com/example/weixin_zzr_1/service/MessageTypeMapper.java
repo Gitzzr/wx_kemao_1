@@ -1,10 +1,10 @@
 package com.example.weixin_zzr_1.service;
 
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.example.commons.domain.InMessage;
+import com.example.commons.domain.event.EventInMessage;
 import com.example.commons.domain.image.ImageInMessage;
 import com.example.commons.domain.text.TextInMessage;
 
@@ -23,7 +23,7 @@ public class MessageTypeMapper {
 		typeMap.put("shortvideo", TextInMessage.class);
 		typeMap.put("link", TextInMessage.class);
 
-		typeMap.put("event", TextInMessage.class);
+		typeMap.put("event", EventInMessage.class);
 	}
 
 	// 通过消息类型获取对应的类
@@ -32,4 +32,3 @@ public class MessageTypeMapper {
 		return (Class<T>) typeMap.get(type);
 	}
 }
-

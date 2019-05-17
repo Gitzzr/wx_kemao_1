@@ -4,6 +4,8 @@ import java.io.StringReader;
 
 import javax.xml.bind.JAXB;
 
+import com.example.commons.domain.InMessage;
+import com.example.weixin_zzr_1.service.MessageTypeMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +17,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.commons.domain.InMessage;
-import com.example.weixin_zzr_1.service.MessageTypeMapper;
 
 // 控制器 : 负责接收用户的请求参数、调用业务逻辑层代码、返回视图/结果给客户端（浏览器）
 // @Controller  基于JSP的控制器
@@ -82,7 +81,7 @@ public class MessageReceiverController {
 		LOG.debug("转换得到的消息对象 \n{}\n", inMessage.toString());
 
 		// 使用默认的序列化程序来实现序列化
-		inMessageTemplate.convertAndSend("kemao_1_" + inMessage.getMsgType(), inMessage);
+		inMessageTemplate.convertAndSend("zzr_1_" + inMessage.getMsgType(), inMessage);
 
 //		// 把消息放入消息队列
 //		inMessageTemplate.execute(new RedisCallback<String>() {

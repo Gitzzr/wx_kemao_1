@@ -36,7 +36,6 @@ public class SubscribeApplication implements //
 
 	public void handle(EventInMessage msg) {
 		// 1.当前类实现ApplicationContextAware接口，用于获得Spring容器
-		LOG.warn("你看到我了没有");
 		// 2.把Event全部转换为小写，并且拼接上MessageProcessor作为ID
 		String id = msg.getEvent().toLowerCase() + "MessageProcessor";
 		// 3.使用ID到Spring容器获取一个Bean
