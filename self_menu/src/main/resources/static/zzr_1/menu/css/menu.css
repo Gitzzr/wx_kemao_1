@@ -1,0 +1,119 @@
+body {
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB",
+		"Microsoft YaHei", sans-serif;
+	margin: 0;
+}
+
+/*主容器、整体布局*/
+.main-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 800px;
+	padding: 0px;
+}
+/*模拟微信界面*/
+.wechat-container {
+	height: 400px;
+	border: 1px solid #eee;
+	display: inline-block;
+	width: 350px;
+}
+/*菜单属性编辑器*/
+.property-container {
+	float: right;
+	width: 440px;
+	height: 400px;
+	border: 1px solid #eee;
+	display: inline-block;
+}
+/*模拟的微信聊天界面部分，现在没有使用*/
+.wechat-container .content-container {
+	float: left;
+	width: 100%;
+}
+/*菜单容器，以及菜单、二级菜单最终都是在这个容器里面*/
+.wechat-container .menus {
+	display: table;
+	float: left;
+	position: absolute;
+	width: 350px;
+	height: 400px;
+	padding: 0px;
+	float: left;
+}
+/*一个以及菜单*/
+.wechat-container .menus .menu {
+	display: table-cell;
+	height: 100%;
+	width: 33%;
+	text-align: center;
+}
+/*二级菜单*/
+.wechat-container .menus .menu .sub-menu {
+	float: left;
+	width: 33%;
+	bottom: 37px;
+	position: absolute;
+}
+/*一级菜单的按钮*/
+.wechat-container .menus .menu .button {
+	position: absolute;
+	bottom: 0px;
+	height: 25px;
+	width: 33%;
+	text-align: center;
+	border: 1px solid #aaa;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	cursor: pointer;
+}
+/*二级菜单的按钮*/
+.wechat-container .menus .menu .sub-menu ul {
+	list-style: none;
+	padding: 0px;
+	margin-bottom: 0px;
+	border-bottom: 1px solid rgba(170, 170, 170, 0.3);
+}
+/*二级菜单的按钮*/
+.wechat-container .menus .menu .sub-menu ul li {
+	text-align: left;
+	border: 1px solid rgba(170, 170, 170, 0.1);
+	background-color: rgba(150, 150, 150, 0.1);
+	cursor: pointer;
+	padding: 5px;
+}
+/*鼠标放到按钮上面的样式，高亮显示*/
+.wechat-container .menus .menu .sub-menu ul li:hover {
+	background-color: rgba(220, 220, 220, 0.1);
+}
+/*选中某个菜单以后的样式*/
+.wechat-container .menus .menu .sub-menu ul li.currentMenu {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+/*选中某个菜单以后的样式*/
+.wechat-container .menus .menu .button.currentMenu {
+	background-color: rgba(120, 120, 120, 0.1);
+}
+/*模拟一个气泡效果，是一个倒三角形*/
+.down-arrow {
+	bottom: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	border-top-color: rgba(0, 0, 0, .1);
+	border-top-width: 11px;
+	border-left-width: 11px;
+	border-right-width: 11px;
+	border-left-color: rgba(0, 0, 0, 0);
+	border-right-color: rgba(0, 0, 0, 0);
+	border-bottom-width: 0;
+	display: block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+/*属性编辑器的标签样式*/
+.property-container .type label {
+	display: block;
+	margin-bottom: 5px;
+}

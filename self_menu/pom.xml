@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.example</groupId>
+    <artifactId>wx_kemao_1</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>self_menu</artifactId>
+  
+  <dependencies>
+
+		<dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>commons</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- Jackson原本是用于Java和JSON相互转换的，后来为了实现Java和XML的转换，增加了jackson-dataformat-xml -->
+		<!-- 如果要使用Jackson，那么就用这个转换器即可！ -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+		</dependency>
+
+
+		<!-- 自动配置Spring Data JPA，使用Hibernate实现 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<!-- 自动配置Redis，使用Lettuce驱动 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		<!-- 自动配置Spring MVC -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- 数据库驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- Spring Boot的测试支持 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- 单元测试框架 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<!-- <version>4.12</version> -->
+			<scope>test</scope>
+		</dependency>
+
+		<!-- 开发者工具，用于实现热部署（修改文件以后马上生效） -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<!-- scope必须是runtime才能生效 -->
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- 加入Servlet API的依赖 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<!-- Tomcat自带的，不要打包 -->
+			<scope>provided</scope>
+		</dependency>
+		<!-- 激活完整版的Tomcat，支持JSP -->
+		<!-- 增加JSP支持 -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<!-- 如果在Tomcat里面运行，那么是由Tomcat提供的 -->
+			<!-- 如果在mvn命令直接运行，该依赖也会加入类路径 -->
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- Spring Boot的Maven插件，用于在打包的时候把所有相关jar文件打包在一起 -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- 可以打包成一个可执行jar文件 -->
+					<executable>true</executable>
+					<!-- fork为true的时候 -->
+					<!-- 将可以使用 mvn spring-boot:start 启动程序 -->
+					<!-- 并且可以使用 mvn spring-boot:stop 停止程序 -->
+					<fork>true</fork>
+					<!-- 每个fork出来的进程都会需要一个JMX端口，不能重复 -->
+					<!-- 建议：每个人使用一段的端口号，比如阿宝使用 9001~9099，小宝使用9100~9199 -->
+					<jmxPort>9103</jmxPort>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
