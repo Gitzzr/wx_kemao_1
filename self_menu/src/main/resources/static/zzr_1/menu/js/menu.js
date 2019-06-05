@@ -142,7 +142,7 @@ function initMenus(){
 		        		    "type": null,
 		        		    "url": null,
 		        		    "mediaId": null,
-		        		    "eventKey": null,
+		        		    "key": null,
 		        		    "show": false,
 		        		    "active": false,
 		        		    "subMenus": []

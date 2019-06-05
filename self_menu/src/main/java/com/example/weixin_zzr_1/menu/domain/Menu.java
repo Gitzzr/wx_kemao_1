@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -44,7 +45,29 @@ public class Menu {
 	/** 小程序的appid（仅认证公众号可配置） */
 	private String appId;
 	/** 小程序的页面路径 */
+	
 	private String pagePath;
+	@Transient
+	private boolean active;
+	@Transient
+	private boolean show;
+	
+	
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public boolean isShow() {
+		return show;
+	}
+
+	public void setShow(boolean show) {
+		this.show = show;
+	}
 
 	public String getId() {
 		return id;
